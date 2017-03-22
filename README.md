@@ -13,7 +13,7 @@
 4. `gzip -dc filename | tar xvf -`コマンドで解凍する ※リナックス上で解凍してください。  
 5. 解凍したseleniumディレクトリを`C:\Python27\Lib`直下にコピペする。  
 6. <https://sites.google.com/a/chromium.org/chromedriver/downloads> から最新版のChromeDriverをダウンロードする。  
-7. ダウンロードしたChromeDriverを`C:\chromedriver\bin`に起き、pathを通す。  
+7. ダウンロードしたChromeDriverを`C:\chromedriver\bin`に置き、pathを通す。  
 
 cf.seleniumについて
 <http://blog.trident-qa.com/2013/05/so-many-seleniums/>
