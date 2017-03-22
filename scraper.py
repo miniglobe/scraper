@@ -15,7 +15,7 @@ driver.get("https://www.google.co.jp/imghp")
 # name属性にqが設定されている要素を取得
 inputElement = driver.find_element_by_name("q")
 
-# 取得した要素にパンケーキを設定
+# 実行時に渡した引数を検索バーに入力する
 inputElement.send_keys(word)
 
 # name属性にbtnGが設定されている要素を取得
@@ -37,10 +37,16 @@ while True:
             moreElement.click()
             sleep(3)
             driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-        except:
+        except NoSuchElementException :
             break
-    continue
-print('finish')
+        continue
+print('load complete')
+
+#data-riの数を取得 or div class = rg_di rg_bx rg_el ivg-iの数を取得
+#class="rg_meta"からouを取得 (json)
+
+
+
 
 #ブラウザをクローズ
 driver.quit()
