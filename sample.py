@@ -26,26 +26,21 @@ submitElement.click()
 judge = 10000000
 while True:
     scroll_h = driver.execute_script("var h = window.pageYOffset; return h")
-    print(scroll_h)
-    print(':')
-    print(judge)
     if scroll_h != judge:
         judge = driver.execute_script("var m = window.pageYOffset; return m")
         #スクロール
         driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
         sleep(3)
-
     else:
-        print("もっとあるかも")
-        break;
-# name属性にbtnGが設定されている要素を取得
-#moreElement = driver.find_element_by_id("smb")
-# 取得した要素をクリック
-#moreElement.click()
+        try:
+            moreElement = driver.find_element_by_id("smb")
+            moreElement.click()
+            sleep(3)
+            driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        except:
+            break
+    continue
+print('finish')
 
 #ブラウザをクローズ
 driver.quit()
-
-
-# スクリーンショットを撮る
-#driver.save_screenshot(word + '.png')
