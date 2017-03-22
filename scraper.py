@@ -1,7 +1,9 @@
 # coding:utf-8
 from selenium import webdriver
+from selenium.common.exceptions import ElementNotVisibleException
 import sys
 from time import sleep
+
 
 arg = sys.argv
 word = unicode(arg[1],'utf-8')
@@ -37,7 +39,7 @@ while True:
             moreElement.click()
             sleep(3)
             driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-        except NoSuchElementException :
+        except ElementNotVisibleException:
             break
         continue
 print('load complete')
