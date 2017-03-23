@@ -7,3 +7,12 @@
 [0322/163846.745:ERROR:process_reader_win.cc(114)] NtOpenThread: {アクセス拒否} プロセスはオブジェクトのアクセスを要求しましたが、アクセス権が与えられていません。  (0xc0000022)
 [0322/163846.745:ERROR:exception_snapshot_win.cc(87)] thread ID 7684 not found in process
 [0322/163846.745:WARNING:crash_report_exception_handler.cc(60)] ProcessSnapshotWin::Initialize failed
+[0323/160152.695:ERROR:process_reader_win.cc(114)] NtOpenThread: {アクセス拒否} プロセスはオブジェクトのアクセスを要求しましたが、アクセス権が与えられていません。  (0xc0000022)
+[0323/160152.734:ERROR:exception_snapshot_win.cc(87)] thread ID 6768 not found in process
+[0323/160152.734:WARNING:crash_report_exception_handler.cc(60)] ProcessSnapshotWin::Initialize failed
+[0323/161311.763:ERROR:process_reader_win.cc(114)] NtOpenThread: {アクセス拒否} プロセスはオブジェクトのアクセスを要求しましたが、アクセス権が与えられていません。  (0xc0000022)
+[0323/161311.764:ERROR:exception_snapshot_win.cc(87)] thread ID 4892 not found in process
+[0323/161311.764:WARNING:crash_report_exception_handler.cc(60)] ProcessSnapshotWin::Initialize failed
+[0323/162749.601:ERROR:process_reader_win.cc(114)] NtOpenThread: {アクセス拒否} プロセスはオブジェクトのアクセスを要求しましたが、アクセス権が与えられていません。  (0xc0000022)
+[0323/162749.603:ERROR:exception_snapshot_win.cc(87)] thread ID 12748 not found in process
+[0323/162749.603:WARNING:crash_report_exception_handler.cc(60)] ProcessSnapshotWin::Initialize failed

@@ -5,11 +5,13 @@ from ast import literal_eval
 from time import sleep
 from bs4 import BeautifulSoup
 import sys
+import urllib2
 
 
 
-arg = sys.argv
-word = unicode(arg[1],'utf-8')
+args = sys.argv
+word = unicode(args[1],'utf-8')
+#num = args[2]
 
 # Chrome用のドライバを指定
 driver = webdriver.Chrome()
@@ -47,21 +49,40 @@ while True:
         continue
 print('load complete')
 
-#ページのソースを取得
+
+#20枚分のurlを取得
 cnt = 0
-while (cnt < 10):
-    page_source= driver.page_source
-    soup=BeautifulSoup(page_source,"lxml")
-    soup= soup.find_all('div', class_="rg_meta")
+n = 20
+while (cnt < n):
+    #ページのソースを取得
+    page_source = driver.page_source
+    soup = BeautifulSoup(page_source,"lxml")
+    soup = soup.find_all('div', class_="rg_meta")
+    #検索結果枚数 cnt
     cnt = len(soup)
+else:
+    driver.quit()
 print(cnt)
+print('oooooooo')
+
+ulist=[]
+for i in soup:
+    dic = i.text.replace("false", "False").replace("true", "True")
+    ulist.append(literal_eval(dic)["ou"])
 
 
-#data-riの数を取得 or div class = rg_di rg_bx rg_el ivg-iの数を取得
-#class="rg_meta"からouを取得 (json)
-
-
-
+#画像を取得
+urls = ulist[:n]
+#urls = ulist[:cnt]
+for cntr,img in enumerate(urls):
+  print "[%03d]Downloading.. %s"%(cntr,img)
+  try:
+      raw_img = urllib2.urlopen(img).read()
+      f = open('%s/%s_%03d.png' % ('output', word, cntr), 'wb')
+      f.write(raw_img)
+      f.close()
+  except IOError:
+      pass
 
 #ブラウザをクローズ
 driver.quit()
