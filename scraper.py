@@ -1,8 +1,11 @@
 # coding:utf-8
 from selenium import webdriver
 from selenium.common.exceptions import ElementNotVisibleException
-import sys
+from ast import literal_eval
 from time import sleep
+from bs4 import BeautifulSoup
+import sys
+
 
 
 arg = sys.argv
@@ -43,6 +46,16 @@ while True:
             break
         continue
 print('load complete')
+
+#ページのソースを取得
+cnt = 0
+while (cnt < 10):
+    page_source= driver.page_source
+    soup=BeautifulSoup(page_source,"lxml")
+    soup= soup.find_all('div', class_="rg_meta")
+    cnt = len(soup)
+print(cnt)
+
 
 #data-riの数を取得 or div class = rg_di rg_bx rg_el ivg-iの数を取得
 #class="rg_meta"からouを取得 (json)
